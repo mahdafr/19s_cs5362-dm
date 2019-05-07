@@ -13,13 +13,17 @@ import numpy as np
 from collections import Counter
 import random
 
-file_name = 'reliable'
+file_name = '10K articles each, 20K features'
+# file_name_2 = 'conspiracy' 
+# file_name_3 = 'fake'
+# file_name_4 = 'unreliable'
+
 #DBSCAN()
-kmeans_algo = KMeans(8)#, verbose = 1)
+kmeans_algo = KMeans(6)#, verbose = 1)
 
 sparse_matrix = scipy.sparse.load_npz(file_name + '.npz')
 dense_matrix = sparse_matrix.todense()
-dense_matrix = dense_matrix[:1500, :]
+# dense_matrix = dense_matrix[:1500, :]
 
 #Normalize
 #word_counts = np.sum(dense_matrix, axis = 1)
@@ -29,13 +33,14 @@ dense_matrix = dense_matrix[:1500, :]
 #dense_matrix = dense_matrix.astype(np.int8)
 algo = kmeans_algo.fit(dense_matrix)
 
-with open(file_name + '.json') as json_data:
-    article_contents = json.load(json_data)
+# with open(file_name + '.json') as json_data:
+#     article_contents = json.load(json_data)
+# article_contents = kmeans_algo.fit(dense_matrix)
 
 cluster_labels = algo.labels_
 counter = Counter(cluster_labels) #Find what are most common clusters assigned to.
 most_common_tuple = counter.most_common()
-n_clusters_to_display = 8
+n_clusters_to_display = 6
 examples_to_display = 2
 
 for i in range(n_clusters_to_display):
@@ -48,8 +53,8 @@ for i in range(n_clusters_to_display):
     if examples_to_display <= len(cluster_indices):
         cluster_indices = random.sample(list(cluster_indices), examples_to_display)
     
-    for j in range(examples_to_display):
-        print('Random Article:')
-        random_idx = random.choice(cluster_indices)
-        random_article_in_cluster = article_contents[random_idx]
-        print(random_article_in_cluster[:400] + '\n')
+    # for j in range(examples_to_display):
+    #     print('Random Article:')
+    #     random_idx = random.choice(cluster_indices)
+        # random_article_in_cluster = article_contents[random_idx]
+        # print(random_article_in_cluster[:400] + '\n')

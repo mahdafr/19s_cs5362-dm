@@ -9,11 +9,11 @@ from sklearn import metrics
 
 eps = 2
 minPts = 100
-file = '30K articles each, 20K features'
+file = '10K articles each, 20K features'
 subset1 = '30K articles each, 40K features'
 subset2 = '60K articles each, 20K features'
 subset3 = '60K articles each, 40K features'
-fname = 'D:/dm_dataset/' + file + '.npz'
+fname = file + '.npz'
 
 print('Running DBSCAN on file: ' + fname)
 print('Using eps-value of: %0.2f' % eps)
@@ -47,7 +47,7 @@ n_clusters_ = len(set(labels)) - (1 if -1 in labels else 0)
 n_noise_ = list(labels).count(-1)
 
 # #############################################################################
-# Results of DBSCAN and metrics
+# Results of DBSCAN and metrics 
 print('Estimated number of clusters: %d' % n_clusters_)
 print('Estimated number of noise points: %d' % n_noise_)
 print("Homogeneity: %0.3f" % metrics.homogeneity_score(labels_true, labels))
