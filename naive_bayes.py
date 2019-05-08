@@ -5,7 +5,6 @@ from nltk.stem import PorterStemmer
 from nltk.corpus import stopwords
 import string
 import numpy as np
-from collections import Counter
 
 import scipy
 
@@ -20,14 +19,6 @@ def clean_article(content):
     tokens = nltk.word_tokenize(content)  # tokenize
     cleaned_content = [PorterStemmer().stem(token) for token in tokens if token not in stop_words]  # stem
     return cleaned_content
-
-
-# create vocabulary dictionary (key is word, value is id) of size vocab_size
-def create_vocab_dict(tokens, vocab_size):
-    vocab = Counter(tokens).most_common(vocab_size)          # [('cat', 13), ('inform', 10), ('cnn', 9), ...]
-    vocab = [common_word[0] for common_word in vocab]        # ['cat', 'inform', 'cnn', ...]
-    vocab = {key: value for value, key in enumerate(vocab)}  # {'cat': 0, 'inform': 1, 'cnn': 2, ...}
-    return vocab
 
 
 # Returns 2D matrix of size (nSamples, vocabSize) value is word frequency
@@ -59,7 +50,8 @@ with open('article.txt', encoding='utf-8') as f:
 
 # get sparse matrix for article
 article_tokens = clean_article(article_content)  # clean and tokenize article contents
-vocabulary = create_vocab_dict(article_tokens, vocabulary_size)  # create vocabulary
+
+vocabulary = np.load('vocab_dict.npz')
 articles_matrix = create_encoded_matrix(article_tokens, vocabulary)  # convert to matrix
 sparse_matrix = scipy.sparse.csc_matrix(articles_matrix)  # convert to sparse matrix
 scipy.sparse.save_npz('article', sparse_matrix)
