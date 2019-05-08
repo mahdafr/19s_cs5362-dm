@@ -12,6 +12,7 @@ from nltk.corpus import stopwords
 import string
 import numpy as np
 from collections import Counter
+import os
 
 import scipy
 
@@ -65,6 +66,8 @@ if __name__ == "__main__":
     parser.add_argument('-vocabulary_size', type=int, required=True, default=40000, help='number of words in vocabulary')
     args = parser.parse_args()
 
+    filename_base = os.path.splitext(args.filename)[0]
+
     # default vocab size is 40k - too much and unknown words will show up
 
     csv.field_size_limit(2147483647)  # avoid errors on huge fields
@@ -88,7 +91,11 @@ if __name__ == "__main__":
     vocabulary = create_vocab_dict(tokenized_articles, args.vocabulary_size)  # create vocabulary
     articles_matrix = create_encoded_matrix(tokenized_articles, vocabulary)  # convert to matrix
     sparse_matrix = scipy.sparse.csc_matrix(articles_matrix)  # convert to sparse matrix
-    scipy.sparse.save_npz(args.filename, sparse_matrix)  # save sparse matrix
+
+    # save sparse matrix
+    filename_base = os.path.splitext(args.filename)[0]
+    scipy.sparse.save_npz(filename_base, sparse_matrix)
+
     # to load saved matrix file:
     # sparse_matrix = scipy.sparse.load_npz(file_name)
     # sparse_matrix.todense()
