@@ -2,54 +2,74 @@
 """
 Created on Tue Apr  2 16:12:26 2019
 
-@author: Jerry C
+@author: Gerardo Cervantes
 """
 
-#import sklearn
-from sklearn.cluster import KMeans, DBSCAN
+from sklearn.cluster import KMeans
+from sklearn.metrics import silhouette_score, silhouette_samples
 import scipy
-import json
 import numpy as np
 from collections import Counter
-import random
+import time
 
-file_name = 'reliable'
-#DBSCAN()
-kmeans_algo = KMeans(8)#, verbose = 1)
+file_name = '10K_articles_each_20K features_3cats.npz'
+file_name_dict = '10K_articles_each_dict.npy'
+n_categories = 3
+n_clusters = 8
 
-sparse_matrix = scipy.sparse.load_npz(file_name + '.npz')
-dense_matrix = sparse_matrix.todense()
-dense_matrix = dense_matrix[:1500, :]
+ordered_labels = ['Conspiracy', 'Fake', 'Reliable']
 
-#Normalize
-#word_counts = np.sum(dense_matrix, axis = 1)
-#dense_matrix = dense_matrix / word_counts[:, None]
 
-#dense_matrix = dense_matrix  != 0
-#dense_matrix = dense_matrix.astype(np.int8)
-algo = kmeans_algo.fit(dense_matrix)
+dict_vocab_obj = np.load(file_name_dict)
+dict_vocab = dict_vocab_obj.item()
+print('Reading file...')
+sparse_matrix = scipy.sparse.load_npz(file_name)
+print('Done reading file')
 
-with open(file_name + '.json') as json_data:
-    article_contents = json.load(json_data)
+articles_per_category = int(sparse_matrix.shape[0]/n_categories)
+
+print('Clustering...')
+start = time.time()
+kmeans_algo = KMeans(n_clusters)
+algo = kmeans_algo.fit(sparse_matrix)
+print('Cluster run time: ' + str(time.time()-start))
+
 
 cluster_labels = algo.labels_
 counter = Counter(cluster_labels) #Find what are most common clusters assigned to.
 most_common_tuple = counter.most_common()
-n_clusters_to_display = 8
-examples_to_display = 2
 
-for i in range(n_clusters_to_display):
+article_labels = np.zeros(n_categories * articles_per_category, dtype = np.int)
+for i, ordered_l in enumerate(ordered_labels):
+    article_labels[articles_per_category*i:articles_per_category*(i+1)] = i
+    
+cluster_to_article_labels = np.zeros((n_clusters, n_categories))
+
+for i, clust_label in enumerate(cluster_labels):
+    cluster_to_article_labels[clust_label, article_labels[i]] += 1
+
+
+cluster_centers = algo.__dict__['cluster_centers_']
+
+score = silhouette_score(sparse_matrix, cluster_labels, metric = 'euclidean')
+print("For n_clusters = {}, silhouette score is {})".format(n_clusters, score))
+#sample_silhouette_values = silhouette_samples(sparse_matrix, cluster_labels)
+
+for i in range(n_clusters):
     
     clust_num, clust_freq = most_common_tuple[i]
-    print('Cluster # ' + str(clust_num))
-    print('Cluster ' + str(clust_num) + ' with frequency ' + str(clust_freq))
+    print('Cluster #' + str(clust_num) + ' with frequency ' + str(clust_freq))
+    cluster_center = cluster_centers[clust_num]
     
-    cluster_indices = np.where(cluster_labels == clust_num)[0]
-    if examples_to_display <= len(cluster_indices):
-        cluster_indices = random.sample(list(cluster_indices), examples_to_display)
-    
-    for j in range(examples_to_display):
-        print('Random Article:')
-        random_idx = random.choice(cluster_indices)
-        random_article_in_cluster = article_contents[random_idx]
-        print(random_article_in_cluster[:400] + '\n')
+    #Gets indices of the 15 highest correlated words
+    high_corr_indices = sorted(range(len(cluster_center)), key=lambda i: cluster_center[i])[-15:]
+
+        
+    for i, article_label in enumerate(ordered_labels):
+        print(article_label + ' ' + str(cluster_to_article_labels[clust_num, i]))
+    corr_words = []
+    for word, vocab_index in dict_vocab.items():
+        if vocab_index in high_corr_indices:
+            corr_words.append(word)
+    print(corr_words)    
+        
