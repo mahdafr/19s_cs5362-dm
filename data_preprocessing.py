@@ -13,6 +13,7 @@ import string
 import numpy as np
 from collections import Counter
 import os
+import csv_const
 
 import scipy
 
@@ -72,16 +73,12 @@ if __name__ == "__main__":
 
     csv.field_size_limit(2147483647)  # avoid errors on huge fields
 
-    # following: https://github.com/several27/FakeNewsCorpus#formatting
-    keys = ['', 'id', 'domain', 'type', 'url', 'content', 'scraped_at', 'inserted_at', 'updated_at', 'title', 'authors',
-            'keywords', 'meta_keywords', 'meta_description', 'tags', 'summary']
-
     contents = []
-    with open(args.filename, encoding='utf-8', newline='') as csv_file:  # csv for reading
-        reader = csv.reader(csv_file, delimiter=',')
+    with open(args.filename, encoding=csv_const.ENCODING, newline=csv_const.NEWLINE) as csv_file:  # csv for reading
+        reader = csv.reader(csv_file, delimiter=csv_const.DELIMITER)
         count = 0  # article limit could be more Pythonic...
-        for row in csv.reader(csv_file, delimiter=','):
-            fields = dict(zip(keys, row))
+        for row in csv.reader(csv_file, delimiter=csv_const.DELIMITER):
+            fields = dict(zip(csv_const.FIELDS, row))
             contents.append(fields['content'])
             count += 1
             if count >= args.article_limit:
