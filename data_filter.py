@@ -10,7 +10,7 @@ def filter_articles(article_types):
     keys = ['', 'id', 'domain', 'type', 'url', 'content', 'scraped_at', 'inserted_at', 'updated_at', 'title', 'authors',
             'keywords', 'meta_keywords', 'meta_description', 'tags', 'summary']
 
-    full_csv_file = open('news_cleaned_2018_02_13.csv', encoding='ISO-8859-1', newline='')  # csv for reading
+    full_csv_file = open('news_cleaned_2018_02_13.csv', encoding='utf-8', newline='')  # csv for reading
 
     for article_type in article_types:
 
