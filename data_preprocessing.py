@@ -62,30 +62,41 @@ def create_encoded_matrix(article_contents, vocab):
 if __name__ == "__main__":
 
     parser = argparse.ArgumentParser(description='get matrix')
-    parser.add_argument('-filename', type=str, required=True, help='.csv file')
+    parser.add_argument('-filenames', type=str, nargs='+', required=True, help='.csv file')
     parser.add_argument('-article_limit', type=int, required=True, help='number of articles to read')
     parser.add_argument('-vocabulary_size', type=int, required=True, default=40000, help='number of words in vocabulary')
     args = parser.parse_args()
 
-    filename_base = os.path.splitext(args.filename)[0]
+
+
 
     # default vocab size is 40k - too much and unknown words will show up
 
     csv.field_size_limit(2147483647)  # avoid errors on huge fields
 
     contents = []
-    with open(args.filename, encoding=csv_const.ENCODING, newline=csv_const.NEWLINE) as csv_file:  # csv for reading
-        reader = csv.reader(csv_file, delimiter=csv_const.DELIMITER)
-        count = 0  # article limit could be more Pythonic...
-        for row in csv.reader(csv_file, delimiter=csv_const.DELIMITER):
-            fields = dict(zip(csv_const.FIELDS, row))
-            contents.append(fields['content'])
-            count += 1
-            if count >= args.article_limit:
-                break
+
+    filenames = args.filenames
+
+    print('filenames', filenames)
+
+    for article_type in filenames:
+
+        filename_base = os.path.splitext(args.filename)[0]
+
+        with open(article_type, encoding=csv_const.ENCODING, newline=csv_const.NEWLINE) as csv_file:  # csv for reading
+            reader = csv.reader(csv_file, delimiter=csv_const.DELIMITER)
+            count = 0  # article limit could be more Pythonic...
+            for row in csv.reader(csv_file, delimiter=csv_const.DELIMITER):
+                fields = dict(zip(csv_const.FIELDS, row))
+                contents.append(fields['content'])
+                count += 1
+                if count >= args.article_limit:
+                    break
 
     tokenized_articles = clean_articles(contents)  # clean and tokenize article contents
     vocabulary = create_vocab_dict(tokenized_articles, args.vocabulary_size)  # create vocabulary
+
     np.save('vocab_dict.npy', vocabulary)
     articles_matrix = create_encoded_matrix(tokenized_articles, vocabulary)  # convert to matrix
     sparse_matrix = scipy.sparse.csc_matrix(articles_matrix)  # convert to sparse matrix
