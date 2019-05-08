@@ -1,38 +1,36 @@
 import csv
+import argparse
 
-NEWLINE = ""
-TAG_INDEX = 3  # column containing tag
-DELIMITER = ","
-ENCODING = "utf-8"
-DATA_CSV = r"D:\dataset\original.csv"
 
-fake_csv = open("fake.csv", "w+", encoding=ENCODING, newline=NEWLINE)
-fake_writer = csv.writer(fake_csv, delimiter=DELIMITER)
+def filter_articles(article_types):
 
-credible_csv = open("credible.csv", "w+", encoding=ENCODING, newline=NEWLINE)
-credible_writer = csv.writer(credible_csv, delimiter=DELIMITER)
+    csv.field_size_limit(2147483647)  # avoid errors on huge fields
 
-conspiracy_csv = open("conspiracy.csv", "w+", encoding=ENCODING, newline=NEWLINE)
-conspiracy_writer = csv.writer(conspiracy_csv, delimiter=DELIMITER)
+    # following: https://github.com/several27/FakeNewsCorpus#formatting
+    keys = ['', 'id', 'domain', 'type', 'url', 'content', 'scraped_at', 'inserted_at', 'updated_at', 'title', 'authors',
+            'keywords', 'meta_keywords', 'meta_description', 'tags', 'summary']
 
-unreliable_csv = open("unreliable.csv", "w+", encoding=ENCODING, newline=NEWLINE)
-unreliable_writer = csv.writer(unreliable_csv, delimiter=DELIMITER)
+    full_csv_file = open('news_cleaned_2018_02_13.csv', encoding='ISO-8859-1', newline='')  # csv for reading
 
-csv.field_size_limit(2147483647)  # avoid errors on huge fields
-with open(DATA_CSV, encoding=ENCODING, newline=NEWLINE) as csv_file:
-    reader = csv.reader(csv_file, delimiter=DELIMITER)
-    for row in reader:
-        if len(row) > TAG_INDEX:
-            if row[TAG_INDEX] == "fake":
-                fake_writer.writerow(row)
-            elif row[TAG_INDEX] == "credible":
-                credible_writer.writerow(row)
-            elif row[TAG_INDEX] == "conspiracy":
-                conspiracy_writer.writerow(row)
-            elif row[TAG_INDEX] == "unreliable":
-                unreliable_writer.writerow(row)
+    for article_type in article_types:
 
-fake_csv.close()
-conspiracy_csv.close()
-unreliable_csv.close()
-credible_csv.close()
+        type_csv_file = open(article_type + '.csv', 'w+', encoding='utf-8', newline='')  # csv for writing
+
+        # zip keys and row values into a dictionary; write to csv if 'type' is a match
+        csv_writer = csv.writer(type_csv_file, delimiter=',')
+        for row in csv.reader(full_csv_file, delimiter=','):
+            fields = dict(zip(keys, row))
+            if 'type' in fields and fields['type'] == article_type:  # some articles don't have a type (?)
+                csv_writer.writerow(row)
+
+        type_csv_file.close()
+
+    full_csv_file.close()
+
+
+if __name__ == "__main__":
+
+    parser = argparse.ArgumentParser(description='Extract articles by type')
+    parser.add_argument('-article_types', nargs='+', type=str, required=True, help='a list of article types')
+    args = parser.parse_args()
+    filter_articles(args.article_types)
