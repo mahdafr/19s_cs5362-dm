@@ -1,5 +1,10 @@
 # Mining for Credibility
-Project for CS5362 Data Mining, Spring 2019
+Project for CS5362 Data Mining, Spring 2019<br/>
+Group Members:<br/>
+* Mahdokht Afravi
+* Jonathan Avila
+* Cristian Ayub
+* Gerardo Cervantes
 
 ## How to Run
 This section describes how to run each script in the python environment equipped with the 'Prerequisites' stated below.
