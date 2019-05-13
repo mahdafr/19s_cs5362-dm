@@ -1,6 +1,9 @@
 # Mining for Credibility
 Project for CS5362 Data Mining, Spring 2019
 
+## How to Run
+This section describes how to run each script in the python environment equipped with the 'Prerequisites' stated below.
+
 ### datafilter.py
 
 Reads `news_cleaned_2018_02_13.csv` and writes rows matching article types supplied with `-article_types`. For a 
