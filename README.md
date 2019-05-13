@@ -1,6 +1,6 @@
 # Mining for Credibility
 Project for CS5362 Data Mining, Spring 2019<br/>
-Group Members:<br/>
+Group Members:
 * Mahdokht Afravi
 * Jonathan Avila
 * Cristian Ayub
@@ -31,3 +31,7 @@ Creates a sparse matrix of documents and word frequency. Default vocabulary size
     
 ### Resources
 Fake News Corpus: https://github.com/several27/FakeNewsCorpus
+
+
+## Downloadables
+Click on the `Releases` tab of the project on GitHub (or clicking [this link](https://github.com/mahdafr/19s_cs5362-dm)) to download a ZIP of all source code, report (as a PDF), and presentation slides (as a PDF).
