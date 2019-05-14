@@ -38,8 +38,8 @@ Runs linear regression and reports whether an article is fake or reliable. The f
 Runs naive bayes. This script is a draft that is incomplete for this project.
 <br/>
 <h4>Prerequisites</h4>
-    <p><q>scipy installed</q></p>
-    <p><q>nltk installed</q></p>
+    <p><q>scipy</q> installed</p>
+    <p><q>nltk</q> installed</p>
     <p><q>nltk.download('stopwords')</q></p>
     <p><q>nltk.download('punkt')</q></p>
 </details>
