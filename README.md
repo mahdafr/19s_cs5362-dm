@@ -6,6 +6,9 @@ Group Members:
 * Cristian Ayub
 * Gerardo Cervantes
 
+## Abstract
+We used the publicly available FakeNewsCorpus dataset that consists of articles labelled as one of 11 types. We used articles labelled as 'fake', 'reliable', and 'conspiracy' to extract features. We convert the data to numerical data by using a spare matrix representation and using term frequency.  With this feature set, we apply clustering algorithms to the dataset, and are able to find useful information about about the data.  We train a model using linear regression that would predict whether an article is 'fake' or 'reliable' and find modest results. Our project site is a GitHub web page that can be found <a href="https://mahdafr.github.io/19s\_cs5362-dm/">on GitHub Pages</a> which contains the source code, a PDF copy of the presentation slides, and a PDF copy of this report.
+
 <details>
     <summary>How to Run</summary>
 <p>This section describes how to run each script in the python environment equipped with the 'Prerequisites' stated below.</p>
