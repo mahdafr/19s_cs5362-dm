@@ -22,9 +22,26 @@ Creates a sparse matrix of documents and word frequency. Default vocabulary size
     <q>data_preprocessing.py -filename="fake.csv" -article_limit=1000 -vocabulary_size=20000</q><br/>
 
 <br/>
+<h4>dbscan.py</h4>
+Runs DBSCAN and calculates outliers' distances to nearest cluster as measure of cluster fit. Reports on clusters made and noise articles. The file names are hardcoded to a specific directory (D:\dm_dataset\) where all files must be located in order to run this script.
+
+<br/>
+<h4>kmeans_algorithm.py</h4>
+Runs k-means and reports random articles for manual analysis of clusters. The file names are hardcoded to a specific directory (D:\dm_dataset\) where all files must be located in order to run this script. k is also hardcoded.
+
+<br/>
+<h4>linear_regression.py</h4>
+Runs linear regression and reports whether an article is fake or reliable. The file names are hardcoded to a specific directory (D:\dm_dataset\) where all files must be located in order to run this script.
+
+<br/>
+<h4>naive_bayes.py</h4>
+Runs naive bayes. This script is a draft that is incomplete for this project.
+<br/>
 <h4>Prerequisites</h4>
-    <p><q>nltk.download('stopwords')</q><br/>
-        <q>nltk.download('punkt')</q></p>
+    <p><q>scipy installed</q></p>
+    <p><q>nltk installed</q></p>
+    <p><q>nltk.download('stopwords')</q></p>
+    <p><q>nltk.download('punkt')</q></p>
 </details>
 
 <details>
@@ -34,7 +51,7 @@ Creates a sparse matrix of documents and word frequency. Default vocabulary size
 
 <details>
     <summary>Downloadables</summary>
-    <p>Click on the <em>Releases</em> tab of the <a href="https://github.com/mahdafr/19s_cs5362-dm/releases">project on GitHub</a> to download a ZIP of all source code, report (as a PDF), and presentation slides (as a PDF).</p>
+    <p>Visit the <a href="https://github.com/mahdafr/19s_cs5362-dm/releases">Releases page</a> of the project on GitHub to download a ZIP of all source code, report (as a PDF), and presentation slides (as a PDF).</p>
 </details>
 
 <details>
