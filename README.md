@@ -6,15 +6,16 @@ Group Members:
 * Cristian Ayub
 * Gerardo Cervantes
 
-## How to Run
-This section describes how to run each script in the python environment equipped with the 'Prerequisites' stated below.
+<details>
+    <summary>How to Run</summary>
+<p>This section describes how to run each script in the python environment equipped with the 'Prerequisites' stated below.</p>
 
-### datafilter.py
+<h3>datafilter.py</h3>
 
-Reads `news_cleaned_2018_02_13.csv` and writes rows matching article types supplied with `-article_types`. For a 
-complete list of article types (tags): https://github.com/several27/FakeNewsCorpus#formatting
+<p>Reads `news_cleaned_2018_02_13.csv` and writes rows matching article types supplied with `-article_types`. For a 
+complete list of article types (tags): https://github.com/several27/FakeNewsCorpus#formatting </p>
 
-For example, to write 'fake' articles and 'reliable' articles into `fake.csv` and `reliable.csv` respectively,
+<p>For example, to write 'fake' articles and 'reliable' articles into `fake.csv` and `reliable.csv` respectively, </p>
 
     data_filter.py -article_types fake reliable
     
@@ -35,3 +36,4 @@ Fake News Corpus: https://github.com/several27/FakeNewsCorpus
 
 ## Downloadables
 Click on the `Releases` tab of the project on GitHub (or clicking [this link](https://github.com/mahdafr/19s_cs5362-dm)) to download a ZIP of all source code, report (as a PDF), and presentation slides (as a PDF).
+</details>
