@@ -20,8 +20,8 @@ Creates a sparse matrix of documents and word frequency. Default vocabulary size
     <q>data_preprocessing.py -filename="fake.csv" -article_limit=1000 -vocabulary_size=20000</q><br/>
 
 <h4>Prerequisites<h4>
-    <q>nltk.download('stopwords')</q><br/>
-    <q>nltk.download('punkt')</q><br/>
+    <p><q>nltk.download('stopwords')</q><br/>
+        <q>nltk.download('punkt')</q></p>
 </details>
 
 <details>
