@@ -7,6 +7,7 @@ Group Members:
 * Gerardo Cervantes
 
 <details>
+    <summary>How to Run</summary>
 <p>This section describes how to run each script in the python environment equipped with the 'Prerequisites' stated below.</p>
 
 <h3>datafilter.py</h3>
@@ -25,9 +26,11 @@ Group Members:
 </details>
 
 <details>
+    <summary>Resources</summary>
     <p>Fake News Corpus: [on GitHub](https://github.com/several27/FakeNewsCorpus)</p>
 </details>
 
 <details>
+    <summary>Downloadables</summary>
     <p>Click on the `Releases` tab of the project on GitHub (or clicking [this link](https://github.com/mahdafr/19s_cs5362-dm)) to download a ZIP of all source code, report (as a PDF), and presentation slides (as a PDF).</p>
 </details>
