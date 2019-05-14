@@ -31,5 +31,5 @@ Creates a sparse matrix of documents and word frequency. Default vocabulary size
 
 <details>
     <summary>Downloadables</summary>
-    Click on the `Releases` tab of the project on GitHub (or visiting https://github.com/mahdafr/19s_cs5362-dm) to download a ZIP of all source code, report (as a PDF), and presentation slides (as a PDF).
+    Click on the <em>Releases</em> tab of the project on GitHub (or visiting https://github.com/mahdafr/19s_cs5362-dm/releases) to download a ZIP of all source code, report (as a PDF), and presentation slides (as a PDF).
 </details>
