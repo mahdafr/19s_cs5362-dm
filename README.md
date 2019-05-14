@@ -37,6 +37,6 @@ Creates a sparse matrix of documents and word frequency. Default vocabulary size
 <details>
     <summary>Links</summary>
     <p>Code: https://github.com/mahdafr/19s_cs5362-dm/</p>
-    <p>Slides: https://github.com/mahdafr/19s_cs5362-dm/docs/slides</p>
-    <p>Report: https://github.com/mahdafr/19s_cs5362-dm/docs/report</p>
+    <p>Slides: https://github.com/mahdafr/19s_cs5362-dm/blob/master/docs/slides.pdf</p>
+    <p>Report: https://github.com/mahdafr/19s_cs5362-dm/blob/master/docs/report.pdf</p>
 </details>
