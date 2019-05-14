@@ -12,7 +12,7 @@ Group Members:
 
 <br/>
 <h4>datafilter.py</h4>
-Reads `news_cleaned_2018_02_13.csv` and writes rows matching article types supplied with `-article_types`. For a complete list of article types (tags), see https://github.com/several27/FakeNewsCorpus#formatting.
+Reads `news_cleaned_2018_02_13.csv` and writes rows matching article types supplied with `-article_types`. For a complete list of article types (tags), see <a href="https://github.com/several27/FakeNewsCorpus#formatting">this page</a>.
     <p>For example, to write 'fake' articles and 'reliable' articles into `fake.csv` and `reliable.csv` respectively, </p>
     <q>data_filter.py -article_types fake reliable</q><br/>
 
@@ -29,17 +29,17 @@ Creates a sparse matrix of documents and word frequency. Default vocabulary size
 
 <details>
     <summary>Resources</summary>
-    <p>Fake News Corpus is available on GitHub at https://github.com/several27/FakeNewsCorpus.</p>
+    <p>Fake News Corpus is available <a href="https://github.com/several27/FakeNewsCorpus">on GitHub</a>.</p>
 </details>
 
 <details>
     <summary>Downloadables</summary>
-    <p>Click on the <em>Releases</em> tab of the project on GitHub (or visiting https://github.com/mahdafr/19s_cs5362-dm/releases) to download a ZIP of all source code, report (as a PDF), and presentation slides (as a PDF).</p>
+    <p>Click on the <em>Releases</em> tab of the <a href="https://github.com/mahdafr/19s_cs5362-dm/releases">project on GitHub</a> to download a ZIP of all source code, report (as a PDF), and presentation slides (as a PDF).</p>
 </details>
 
 <details>
     <summary>Links</summary>
-    <p>Code: https://github.com/mahdafr/19s_cs5362-dm/</p>
-    <p>Slides: https://github.com/mahdafr/19s_cs5362-dm/blob/master/docs/slides.pdf</p>
-    <p>Report: https://github.com/mahdafr/19s_cs5362-dm/blob/master/docs/report.pdf</p>
+    <p><a href="https://github.com/mahdafr/19s_cs5362-dm/">Code</a></p>
+    <p><a href="https://github.com/mahdafr/19s_cs5362-dm/blob/master/docs/slides.pdf">Slides</a></p>
+    <p><a href="https://github.com/mahdafr/19s_cs5362-dm/blob/master/docs/report.pdf">Report</a></p>
 </details>
