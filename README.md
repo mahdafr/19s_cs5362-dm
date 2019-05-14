@@ -19,7 +19,7 @@ Reads `news_cleaned_2018_02_13.csv` and writes rows matching article types suppl
 Creates a sparse matrix of documents and word frequency. Default vocabulary size is 40,000.
     <q>data_preprocessing.py -filename="fake.csv" -article_limit=1000 -vocabulary_size=20000</q><br/>
 
-<h4>Prerequisites<h4>
+<h4>Prerequisites</h4>
     <p><q>nltk.download('stopwords')</q><br/>
         <q>nltk.download('punkt')</q></p>
 </details>
