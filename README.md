@@ -6,7 +6,7 @@ Group Members:
 * Cristian Ayub
 * Gerardo Cervantes
 
-<run>
+<details>
 <p>This section describes how to run each script in the python environment equipped with the 'Prerequisites' stated below.</p>
 
 <h3>datafilter.py</h3>
@@ -22,12 +22,12 @@ Group Members:
 <h2>Prerequisites<h2>
     `nltk.download('stopwords')`
     `nltk.download('punkt')`
-</run>
+</details>
 
-<resources>
+<details>
     <p>Fake News Corpus: [on GitHub](https://github.com/several27/FakeNewsCorpus)</p>
-</resources>
+</details>
 
-<Downloadables>
+<details>
     <p>Click on the `Releases` tab of the project on GitHub (or clicking [this link](https://github.com/mahdafr/19s_cs5362-dm)) to download a ZIP of all source code, report (as a PDF), and presentation slides (as a PDF).</p>
-</Downloadables>
+</details>
