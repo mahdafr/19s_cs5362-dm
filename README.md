@@ -15,12 +15,12 @@ Reads `news_cleaned_2018_02_13.csv` and writes rows matching article types suppl
     <p>For example, to write 'fake' articles and 'reliable' articles into `fake.csv` and `reliable.csv` respectively, </p>
     <q>data_filter.py -article_types fake reliable</q>
   
-<h3>data_preprocessing.py</h3>
+<h4>data_preprocessing.py</h4>
 Creates a sparse matrix of documents and word frequency. Default vocabulary size is 40,000.
     <q>data_preprocessing.py -filename="fake.csv" -article_limit=1000 -vocabulary_size=20000</q>
 
-<h3>Prerequisites<h3>
-    <q>nltk.download('stopwords')</q>
+<h4>Prerequisites<h4>
+    <q>nltk.download('stopwords')</q><br/>
     <q>nltk.download('punkt')</q>
 </details>
 
