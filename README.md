@@ -23,7 +23,7 @@ Creates a sparse matrix of documents and word frequency. Default vocabulary size
 
 <br/>
 <h4>dbscan.py</h4>
-Runs DBSCAN and calculates outliers' distances to nearest cluster as measure of cluster fit. Reports on clusters made and noise articles. The file names are hardcoded to a specific directory (D:\dm_dataset\) where all files must be located in order to run this script.</p>
+<p>Runs DBSCAN and calculates outliers' distances to nearest cluster as measure of cluster fit. Reports on clusters made and noise articles. The file names are hardcoded to a specific directory (D:\dm_dataset\) where all files must be located in order to run this script.</p>
 
 <br/>
 <h4>kmeans_algorithm.py</h4>
