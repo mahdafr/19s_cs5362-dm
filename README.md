@@ -23,19 +23,20 @@ Creates a sparse matrix of documents and word frequency. Default vocabulary size
 
 <br/>
 <h4>dbscan.py</h4>
-Runs DBSCAN and calculates outliers' distances to nearest cluster as measure of cluster fit. Reports on clusters made and noise articles. The file names are hardcoded to a specific directory (D:\dm_dataset\) where all files must be located in order to run this script.
+Runs DBSCAN and calculates outliers' distances to nearest cluster as measure of cluster fit. Reports on clusters made and noise articles. The file names are hardcoded to a specific directory (D:\dm_dataset\) where all files must be located in order to run this script.</p>
 
 <br/>
 <h4>kmeans_algorithm.py</h4>
-Runs k-means and reports random articles for manual analysis of clusters. The file names are hardcoded to a specific directory (D:\dm_dataset\) where all files must be located in order to run this script. k is also hardcoded.
+<p>Runs k-means and reports random articles for manual analysis of clusters. The file names are hardcoded to a specific directory (D:\dm_dataset\) where all files must be located in order to run this script. k is also hardcoded.</p>
 
 <br/>
 <h4>linear_regression.py</h4>
-Runs linear regression and reports whether an article is fake or reliable. The file names are hardcoded to a specific directory (D:\dm_dataset\) where all files must be located in order to run this script.
+<p>Runs linear regression and reports whether an article is fake or reliable. The file names are hardcoded to a specific directory (D:\dm_dataset\) where all files must be located in order to run this script.</p>
 
 <br/>
 <h4>naive_bayes.py</h4>
-Runs naive bayes. This script is a draft that is incomplete for this project.
+<p>Runs naive bayes. This script is a draft that is incomplete for this project.</p>
+
 <br/>
 <h4>Prerequisites</h4>
     <p><q>scipy</q> installed</p>
